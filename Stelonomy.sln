@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stelonomy", "Stelonomy\Stelonomy.csproj", "{9182727F-C2CB-42A9-8905-22F08550FA5D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9182727F-C2CB-42A9-8905-22F08550FA5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9182727F-C2CB-42A9-8905-22F08550FA5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9182727F-C2CB-42A9-8905-22F08550FA5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9182727F-C2CB-42A9-8905-22F08550FA5D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
