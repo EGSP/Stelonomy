@@ -14,7 +14,7 @@ namespace Stelonomy.Program
         // Здесь мы вызываем основной метод (асинхронный).
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Bot app started.");
 
             try
             {
@@ -24,7 +24,11 @@ namespace Stelonomy.Program
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
-                
+
+            }
+            finally
+            {
+                Console.WriteLine("Closing console.");
             }
         }
         
@@ -54,6 +58,7 @@ namespace Stelonomy.Program
                 var servicesMaster = new ServicesMaster(Lifetime);
                 await servicesMaster.Add(() => new LoggerService(), false, _loggerLifetimeDefinition.Lifetime);
                 await servicesMaster.Add(() => new DiscordService(Token));
+                await servicesMaster.Add(() => new LiteDbService());
 
                 await servicesMaster.InitializeServices();
 

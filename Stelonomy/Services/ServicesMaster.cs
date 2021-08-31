@@ -90,7 +90,7 @@ namespace Stelonomy.Services
         /// </summary>
         /// <exception cref="ServiceAwaitDeadlockException"></exception>
         /// <exception cref="ServiceDependencyException"></exception>
-        public async Task<T> AwaitService<T>(IService caller) where T : class, IService
+        public async Task<Option<T>> AwaitService<T>(IService caller) where T : class, IService
         {
             var type = typeof(T);
 
@@ -106,6 +106,9 @@ namespace Stelonomy.Services
                 }
                 else
                 {
+                    if (info.Service.Lifetime.IsNotAlive)
+                        return Option<T>.None;
+                    
                     // Если нужный сервис кого-то ждет, значит мы пришли к deadlock.
                     if (_awaitingChain.Contains(info.Service))
                     {
