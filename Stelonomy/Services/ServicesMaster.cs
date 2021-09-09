@@ -35,9 +35,11 @@ namespace Stelonomy.Services
             var serviceLifetime = parentLifetime == default
                 ? Lifetime.CreateNested().Lifetime : parentLifetime.CreateNested().Lifetime;
             
-            // ILifetimed
+            // REFLECTION ---------------------------------------------------------------------------------------------------
+            // Инъекция объекта.
             inst.GetType().GetProperty("Lifetime")?.SetValue(inst, 
                 serviceLifetime);
+            // --------------------------------------------------------------------------------------------------------------
 
             var info = new ServiceInfo(inst);
             if (immidiate)
